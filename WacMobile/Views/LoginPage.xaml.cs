@@ -17,5 +17,15 @@ namespace WacMobile.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+
+        private async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AboutPage());
+        }
+
+        private async void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
     }
 }

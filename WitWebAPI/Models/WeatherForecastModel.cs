@@ -1,8 +1,8 @@
 using System;
 
-namespace WitWebAPI
+namespace WitWebAPI.Models
 {
-    public class WeatherForecast
+    public class WeatherForecastModel
     {
         public DateTime Date { get; set; }
 

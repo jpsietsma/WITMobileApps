@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WacMobile.Android", "WacMob
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WacMobile", "WacMobile\WacMobile.csproj", "{E820BE14-7115-411C-99EB-50A1C9EBB1A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WitWebAPI", "WitWebAPI\WitWebAPI.csproj", "{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WitWebAPI", "WitWebAPI\WitWebAPI.csproj", "{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
