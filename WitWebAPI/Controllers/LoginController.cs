@@ -14,11 +14,13 @@ namespace WitWebAPI.Controllers
     {
         private readonly IDBStore Database;
         private readonly DatabaseContext WITDB;
+        private IPassword Password { get; set; }
 
-        public LoginController(IDBStore _dbStore, DatabaseContext _db)
+        public LoginController(IDBStore _dbStore, DatabaseContext _db, IPassword _password)
         {
             Database = _dbStore;
             WITDB = _db;
+            Password = _password;
         }
 
         public string Index()
@@ -35,15 +37,15 @@ namespace WitWebAPI.Controllers
         public string MobileAuth(string userName, string password)
         {
             LoginResponseModel response;
-            SiteUserModel userModel = WITDB.SiteUser.Where(x => x.suEmail == userName).FirstOrDefault();
+            SiteUserModel userModel = WITDB.SiteUser.Where(x => x.suEmail == userName).FirstOrDefault();           
 
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
                 response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password." };                
             }
             else
-            {               
-                if (userModel != null)
+            {
+                if (userModel != null && Password.Check(userModel.suPassword, password))
                 {
                     response = new LoginResponseModel { Status = "success", Message = "You have been successfully logged in.", User = userModel };
                 }

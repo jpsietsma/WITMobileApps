@@ -30,6 +30,7 @@ namespace WitWebAPI
             services.AddMvc();
 
             services.AddSingleton<IDBStore, DatabaseStore>();
+            services.AddSingleton<IPassword, Password>();
 
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(
