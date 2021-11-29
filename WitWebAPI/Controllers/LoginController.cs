@@ -33,7 +33,7 @@ namespace WitWebAPI.Controllers
         }
 
         [Route("mobile/")]
-        //[HttpPost]
+        [HttpPost]
         public string MobileAuth(string userName, string password)
         {
             LoginResponseModel response;
@@ -41,7 +41,7 @@ namespace WitWebAPI.Controllers
 
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
-                response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password." };                
+                response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password.", User = null };                
             }
             else
             {
@@ -51,7 +51,7 @@ namespace WitWebAPI.Controllers
                 }
                 else
                 {
-                    response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password." };
+                    response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password.", User = null };
                 }                                
             }
 

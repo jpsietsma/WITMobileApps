@@ -4,37 +4,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WacMobile.Models;
+using WacMobile.Services;
 using WacMobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+[assembly: Dependency(typeof(AuthenticationService))]
 namespace WacMobile.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]    
     public partial class LoginPage : ContentPage
     {
+        private AuthenticationService AuthSvc;
+
         public LoginPage()
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
+            AuthSvc = DependencyService.Get<AuthenticationService>();
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            var user = new SiteUser()
+            AuthSvc.UserName = userName.Text;
+            AuthSvc.Password = password.Text;
+
+            var response = await AuthSvc.AuthenticateUserAsync();
+
+            if (response.User != null)
             {
-                suFirstName = "Jimmy",
-                suLastName = "Sietsma"
-            };
+                await Navigation.PushAsync(new DashboardPage(response.User));
+            }
+            else
+            {
+                errorPlaceholder.TextColor = Color.Red;
+                errorPlaceholder.Text = response.Message;
+            }
 
-            var dashboardPage = new DashboardPage(user);
-
-            await Navigation.PushAsync(dashboardPage);
         }
 
         private async void CancelButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            errorPlaceholder.TextColor = Color.Red;
+            errorPlaceholder.Text = "You must login to continue.";
         }
     }
 }

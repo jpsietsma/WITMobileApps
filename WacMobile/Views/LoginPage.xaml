@@ -8,6 +8,7 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Margin="20" Padding="350,0,350,0" VerticalOptions="Center">
+            <Entry x:Name="errorPlaceholder" />
             <Entry x:Name="userName" Placeholder="WIT Username" />
             <Entry x:Name="password" Placeholder="WIT Password" />
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
