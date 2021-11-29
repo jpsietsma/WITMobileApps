@@ -34,14 +34,40 @@ namespace WitWebAPI.Controllers
 
         [Route("mobile/")]
         [HttpPost]
-        public string MobileAuth(string userName, string password)
+        public string MobileAuth([FromBody]LoginRequestModel UserLoginRequest)
         {
             LoginResponseModel response;
-            SiteUserModel userModel = WITDB.SiteUser.Where(x => x.suEmail == userName).FirstOrDefault();           
+            SiteUserModel userModel = WITDB.SiteUser.Where(x => x.suEmail == UserLoginRequest.userName).FirstOrDefault();           
+
+            if (string.IsNullOrEmpty(UserLoginRequest.userName) || string.IsNullOrEmpty(UserLoginRequest.password))
+            {
+                response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password.", User = null };                
+            }
+            else
+            {
+                if (userModel != null && Password.Check(userModel.suPassword, UserLoginRequest.password))
+                {
+                    response = new LoginResponseModel { Status = "success", Message = "You have been successfully logged in.", User = userModel };
+                }
+                else
+                {
+                    response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password.", User = null };
+                }                                
+            }
+
+            return JsonConvert.SerializeObject(response);
+        }
+
+        [Route("mobileGet/")]
+        [HttpGet]
+        public string MobileAuthGet(string userName, string password)
+        {
+            LoginResponseModel response;
+            SiteUserModel userModel = WITDB.SiteUser.Where(x => x.suEmail == userName).FirstOrDefault();
 
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
-                response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password.", User = null };                
+                response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password.", User = null };
             }
             else
             {
@@ -52,7 +78,7 @@ namespace WitWebAPI.Controllers
                 else
                 {
                     response = new LoginResponseModel { Status = "fail", Message = "Login Failed. Check Username and Password.", User = null };
-                }                                
+                }
             }
 
             return JsonConvert.SerializeObject(response);

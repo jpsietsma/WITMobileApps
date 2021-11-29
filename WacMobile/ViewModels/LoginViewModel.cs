@@ -15,7 +15,6 @@ namespace WacMobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        private HttpClient HttpClient;
 
         public Command LoginCommand { get; }
 

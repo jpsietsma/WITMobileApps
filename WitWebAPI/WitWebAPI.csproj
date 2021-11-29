@@ -15,5 +15,9 @@
     <Folder Include="Views\Login\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WacMobile\WacMobile.csproj" />
+  </ItemGroup>
+
 
 </Project>

@@ -18,7 +18,6 @@ namespace WacMobile.Services
 
         private LoginRequestModel RequestModel { get; set; }        
         private HttpClient HttpContext { get; set; }
-        private JsonSerializer _jsonSerializer { get; set; }
 
 
         public AuthenticationService()
@@ -26,8 +25,6 @@ namespace WacMobile.Services
             HttpContext = new HttpClient();
             HttpContext.BaseAddress = new Uri(AppSettingsManager.Settings["BaseUrl"]);
             HttpContext.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            _jsonSerializer = new JsonSerializer();
         }
 
         public async Task<LoginResponseModel> AuthenticateUserAsync()
@@ -36,23 +33,25 @@ namespace WacMobile.Services
             {
                 RequestModel = new LoginRequestModel()
                 {
-                    Username = UserName,
-                    Password = Password
+                    userName = UserName,
+                    password = Password
                 };
             }
 
             try
             {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(RequestModel), Encoding.UTF8, "application/json");
+                var requestData = JsonConvert.SerializeObject(RequestModel);
+
+                StringContent content = new StringContent(requestData, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await HttpContext.PostAsync(AppSettingsManager.Settings["AuthUrl"], content);
 
                 using (var stream = await response.Content.ReadAsStreamAsync())
                 using (var reader = new StreamReader(stream))
                 using (var json = new JsonTextReader(reader))
                 {
-                    var x = json;
+                    var responseString = await json.ReadAsStringAsync();
 
-                    var responseModel = _jsonSerializer.Deserialize<LoginResponseModel>(json);
+                    var responseModel = JsonConvert.DeserializeObject<LoginResponseModel>(responseString);
 
                     return responseModel;
                 }
