@@ -46,10 +46,13 @@ namespace WacMobile.Views
 
         private async void CancelButton_Clicked(object sender, EventArgs e)
         {
-            userName.Text = string.Empty;
-            password.Text = string.Empty;
-            errorPlaceholder.TextColor = Color.Red;
-            errorPlaceholder.Text = "You must login to continue.";
+            await Task.Run(() =>
+            {
+                userName.Text = string.Empty;
+                password.Text = string.Empty;
+                errorPlaceholder.TextColor = Color.Red;
+                errorPlaceholder.Text = "You must login to continue.";
+            });                        
         }
     }
 }
