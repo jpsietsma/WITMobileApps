@@ -22,6 +22,7 @@ namespace WacMobile.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
             AuthSvc = DependencyService.Get<AuthenticationService>();
+
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
@@ -45,6 +46,8 @@ namespace WacMobile.Views
 
         private async void CancelButton_Clicked(object sender, EventArgs e)
         {
+            userName.Text = string.Empty;
+            password.Text = string.Empty;
             errorPlaceholder.TextColor = Color.Red;
             errorPlaceholder.Text = "You must login to continue.";
         }

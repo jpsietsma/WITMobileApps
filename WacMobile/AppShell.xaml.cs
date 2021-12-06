@@ -13,11 +13,15 @@ namespace WacMobile
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(DashboardPage), typeof(DashboardPage));
+            Routing.RegisterRoute(nameof(ParticipantSearchPage), typeof(ParticipantSearchPage));
+
         }
 
-        private async void OnMenuItemClicked(object sender, EventArgs e)
+        private async void OnLogOutItemClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//LoginPage");
         }
+
     }
 }
