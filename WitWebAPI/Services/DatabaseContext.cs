@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WITMobileClasses.Participant;
 using WitWebAPI.Models;
 
 namespace WitWebAPI.Services
@@ -10,6 +11,7 @@ namespace WitWebAPI.Services
     public class DatabaseContext : DbContext
     {
         public virtual DbSet<SiteUserModel> SiteUser { get; set; }
+        public virtual DbSet<ParticipantDetailsViewModel> Contact { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
         : base(options)

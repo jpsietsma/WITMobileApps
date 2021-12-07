@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WacMobile", "WacMobile\WacM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WitWebAPI", "WitWebAPI\WitWebAPI.csproj", "{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WITMobileClasses", "WITMobileClasses\WITMobileClasses.csproj", "{D356106B-3934-4485-B4DC-B45E86027742}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D356106B-3934-4485-B4DC-B45E86027742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D356106B-3934-4485-B4DC-B45E86027742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D356106B-3934-4485-B4DC-B45E86027742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D356106B-3934-4485-B4DC-B45E86027742}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
