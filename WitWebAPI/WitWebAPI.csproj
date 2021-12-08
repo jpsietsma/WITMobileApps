@@ -12,11 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WacMobile.Models\WacMobile.Models.csproj" />
+    <ProjectReference Include="..\WacMobileModels\WacMobileModels.csproj" />
     <ProjectReference Include="..\WacMobile\WacMobile.csproj" />
   </ItemGroup>
 

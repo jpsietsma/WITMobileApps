@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WacMobile", "WacMobile\WacM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WitWebAPI", "WitWebAPI\WitWebAPI.csproj", "{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WacMobile.Models", "WacMobile.Models\WacMobile.Models.csproj", "{7A3CB229-58B7-4729-BE90-3A621370CD90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WacMobileModels", "WacMobileModels\WacMobileModels.csproj", "{43DD7A20-C78D-4DF7-B594-790BA9E86422}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,10 @@ Global
 		{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AC7340B-091A-4EFA-B1CF-6C64E83CBC0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A3CB229-58B7-4729-BE90-3A621370CD90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A3CB229-58B7-4729-BE90-3A621370CD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A3CB229-58B7-4729-BE90-3A621370CD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A3CB229-58B7-4729-BE90-3A621370CD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43DD7A20-C78D-4DF7-B594-790BA9E86422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43DD7A20-C78D-4DF7-B594-790BA9E86422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43DD7A20-C78D-4DF7-B594-790BA9E86422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43DD7A20-C78D-4DF7-B594-790BA9E86422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

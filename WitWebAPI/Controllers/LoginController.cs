@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WitWebAPI.Models;
+using WacMobileModels.Authentication;
 using WitWebAPI.Services;
 
 namespace WitWebAPI.Controllers

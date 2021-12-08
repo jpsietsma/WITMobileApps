@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WacMobile.Models.Farm;
-using WacMobile.Models.Participant;
-using WitWebAPI.Models;
+using WacMobileModels.Authentication;
+using WacMobileModels.Farm;
+using WacMobileModels.Participant;
 
 namespace WitWebAPI.Services
 {

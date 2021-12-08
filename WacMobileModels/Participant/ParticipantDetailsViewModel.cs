@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WacMobile.Models.Participant
+namespace WacMobileModels.Participant
 {
     public class ParticipantDetailsViewModel
     {
