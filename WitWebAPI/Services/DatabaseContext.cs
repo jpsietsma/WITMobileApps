@@ -3,7 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WITMobileClasses.Participant;
+using WacMobile.Models.Farm;
+using WacMobile.Models.Participant;
 using WitWebAPI.Models;
 
 namespace WitWebAPI.Services
@@ -12,6 +13,7 @@ namespace WitWebAPI.Services
     {
         public virtual DbSet<SiteUserModel> SiteUser { get; set; }
         public virtual DbSet<ParticipantDetailsViewModel> Contact { get; set; }
+        public virtual DbSet<FarmDetailsViewModel> Farm { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
         : base(options)

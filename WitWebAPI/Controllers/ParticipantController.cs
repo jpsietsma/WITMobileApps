@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WITMobileClasses.Participant;
+using WacMobile.Models.Participant;
 using WitWebAPI.Services;
 
 namespace WitWebAPI.Controllers

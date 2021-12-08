@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WacMobile.Models\WacMobile.Models.csproj" />
     <ProjectReference Include="..\WacMobile\WacMobile.csproj" />
-    <ProjectReference Include="..\WITMobileClasses\WITMobileClasses.csproj" />
   </ItemGroup>
 
 
