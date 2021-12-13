@@ -15,28 +15,29 @@ namespace WacMobile.Views
     public partial class ParticipantSearchPage : ContentPage
     {
         private WITDataService DataSvc;
-
         public List<ParticipantDetailsViewModel> ParticipantList { get; set; }
 
-        public List<string> ParticipantData { get; set; }
 
         public ParticipantSearchPage()
         {            
             InitializeComponent();
 
             DataSvc = DependencyService.Get<WITDataService>();
-
-            ParticipantList = new List<ParticipantDetailsViewModel> { 
-                new ParticipantDetailsViewModel { conID = 1, conLastName = "Sietsma", conFirstName = "Jimmy" },
-                new ParticipantDetailsViewModel { conID = 2, conLastName = "Jackson", conFirstName = "John" },
-                new ParticipantDetailsViewModel { conID = 3, conLastName = "Caruso", conFirstName = "Brian" },
-                new ParticipantDetailsViewModel { conID = 4, conLastName = "McTester", conFirstName = "Testy" }
-
-            };
-
-            ParticipantListView.ItemsSource = ParticipantList;
         }
 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
 
+            ParticipantList = await DataSvc.GetParticipants();
+            participantPicker.ItemsSource = ParticipantList;
+        }
+
+        private void participantSearchButton_Clicked(object sender, EventArgs e)
+        {
+            var participantSelected = participantPicker.SelectedItem as ParticipantDetailsViewModel;
+
+            Navigation.PushAsync(new ParticipantDetailsPage(participantSelected.conID));
+        }
     }
 }

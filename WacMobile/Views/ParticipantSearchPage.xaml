@@ -6,18 +6,11 @@
         <StackLayout Margin="0,30,0,0" HorizontalOptions="Center">
             <Label Text="Choose a contact to view details:" FontSize="Large" />
             <StackLayout Orientation="Vertical">
-                <ListView x:Name="ParticipantListView">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding GetNameLF}" />
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Button x:Name="participantSearchButton" Text="Get Details" />
+                    <Picker x:Name="participantPicker" 
+                            Title="--Select Participant--" 
+                            ItemsSource="{Binding ParticipantList}"
+                            ItemDisplayBinding="{Binding GetNameLF}"/>
+                    <Button x:Name="participantSearchButton" Text="Get Details" Clicked="participantSearchButton_Clicked" />
             </StackLayout>            
         </StackLayout>
     </ContentPage.Content>

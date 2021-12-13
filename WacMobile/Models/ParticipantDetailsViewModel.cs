@@ -26,6 +26,7 @@ namespace WacMobile.Models
         public DateTime? conModifiedDate { get; set; }
 
         public string GetNameLF { get { return string.Concat(conLastName, ", ", conFirstName); } }
+        public string GetNameFL { get { return string.Concat(conFirstName, " ", conLastName); } }
 
     }
 }

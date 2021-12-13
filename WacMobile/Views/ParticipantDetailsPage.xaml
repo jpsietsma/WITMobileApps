@@ -2,11 +2,79 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WacMobile.Views.ParticipantDetailsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="This is the participant details page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <ContentPage.Content>        
+        <StackLayout VerticalOptions="StartAndExpand">
+            <!-- Header -->
+            <StackLayout Orientation="Horizontal"
+                     VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="Center">
+                <Label Text="Contact Details: " 
+                   FontSize="Title" />                
+            </StackLayout>
+            <!-- Name, Email, Active, Deceased -->
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Contact Name: " />
+                    <Label Text="{Binding GetNameFL}" />
+                </StackLayout>                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Email Address: " />
+                    <Label Text="{Binding conEmail}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Is Deceased? " />
+                    <Label Text="{Binding conIsDeceased}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Is Active? " />
+                    <Label Text="{Binding conIsActive}" />
+                </StackLayout>
+            </StackLayout>
+            <Label Text=" "/>
+            <!-- Address info -->
+            <StackLayout Orientation="Vertical"  VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="Address Information: " 
+                   FontSize="Title" />
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Street Address: " />
+                        <Label Text="123 Fake Street" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="City/State/Zip: " />
+                        <Label Text="Walton, NY 13856" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="County: " />
+                        <Label Text="Delaware" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <Label Text=" " />
+            <!-- Farm Information -->
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                <Label Text="Associated Farms: " 
+                   FontSize="Title" />
+                <Label Text="Farm ID: TEST-001 (Owner)" />
+                <Label Text="Farm ID: TEST-002 (Owner/Operator)" />
+                <Label Text="Farm ID: TEST-003 (Operator)" />
+            </StackLayout>
+            <Label Text=" " />
+            <!-- Documents -->
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal"
+                     VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="Center">
+                    <Label Text="Documents Available: " 
+                   FontSize="Title" />
+                </StackLayout>
+                <Label Text="IRS W-9 (2019)" />
+                <Label Text="IRS W-9 (2020)" />
+                <Label Text="Workman's Comp (2019)" />
+                <Label Text="Workman's Comp (2020)" />
+                <Label Text="Certificate of Liability (2019)" />
+                <Label Text="Certificate of Liability (2020)" />
+            </StackLayout>            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
