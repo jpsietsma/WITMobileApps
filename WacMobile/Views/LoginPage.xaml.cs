@@ -23,6 +23,10 @@ namespace WacMobile.Views
             this.BindingContext = new LoginViewModel();
             AuthSvc = DependencyService.Get<AuthenticationService>();
 
+            /*Remove these when testing is complete and application is ready to be deployed */
+            userName.Text = "jsietsma@nycwatershed.org";
+            password.Text = "A!12@lop^6";
+
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)

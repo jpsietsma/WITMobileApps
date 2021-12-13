@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WacMobile.Views.ParticipantSearchPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="This is the participant search page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="0,30,0,0" HorizontalOptions="Center">
+            <Label Text="Choose a contact to view details:" FontSize="Large" />
+            <StackLayout Orientation="Vertical">
+                <ListView x:Name="ParticipantListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding GetNameLF}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button x:Name="participantSearchButton" Text="Get Details" />
+            </StackLayout>            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
