@@ -38,15 +38,15 @@
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Street Address: " />
-                        <Label Text="123 Fake Street" />
+                        <Label Text="{Binding conAddress.addAddress}" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="City/State/Zip: " />
-                        <Label Text="Walton, NY 13856" />
+                        <Label Text="{Binding GetAddrCSZ}" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="County: " />
-                        <Label Text="Delaware" />
+                        <Label Text="TBD" />
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

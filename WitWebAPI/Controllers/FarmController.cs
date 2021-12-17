@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,9 @@ namespace WitWebAPI.Controllers
         {
             FarmDetailsViewModel farm;
 
-            farm = Database.Farm.Where(x => x.farmID == Id).FirstOrDefault();
+            farm = Database.Farm.Where(x => x.farmID == Id)
+                .Include(a => a.farmPrimaryAddress)
+                .FirstOrDefault();
 
             return JsonConvert.SerializeObject(farm);
         }
@@ -38,7 +41,11 @@ namespace WitWebAPI.Controllers
         {
             List<FarmDetailsViewModel> farms = new List<FarmDetailsViewModel>();
 
-            farms = Database.Farm.ToList();
+            farms = Database.Farm
+                .Include(a => a.farmPrimaryAddress)
+                .Include(p => p.farmParticipantProducer)
+                .OrderBy(f => f.farmIdentificationValue)
+                .ToList();
 
             return JsonConvert.SerializeObject(farms);
         }

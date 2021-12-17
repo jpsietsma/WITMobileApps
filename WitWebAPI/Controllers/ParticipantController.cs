@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,10 @@ namespace WitWebAPI.Controllers
         {
             ParticipantDetailsViewModel participantModel;
 
-            participantModel = Database.Contact.Where(x => x.conID == Id).FirstOrDefault();
+            participantModel = Database.Contact
+                .Include(a => a.conAddress)
+                .Where(x => x.conID == Id)
+                .FirstOrDefault();
 
             return JsonConvert.SerializeObject(participantModel);
         }
@@ -38,7 +42,9 @@ namespace WitWebAPI.Controllers
         {
             List<ParticipantDetailsViewModel> participants = new List<ParticipantDetailsViewModel>();
 
-            participants = Database.Contact.ToList();
+            participants = Database.Contact
+                .Include(a => a.conAddress)
+                .ToList();
 
             return JsonConvert.SerializeObject(participants);
         }

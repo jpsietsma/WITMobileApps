@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using WacMobileModels.Address;
+using WacMobileModels.Participant;
 
 namespace WacMobileModels.Farm
 {
@@ -20,15 +22,21 @@ namespace WacMobileModels.Farm
         public string farmTier2Notes { get; set; }
         public string farmIdentificationAlpha { get; set; }
         public string farmIdentificationNumber { get; set; }
-        public string farmIdentificationValue { get; set; }    
+        public string farmIdentificationValue { get; set; }
         public string farmPrimaryTaxParcelID { get; set; }
         public int? farmPrimaryBasinID { get; set; }
-        
-        [Column(TypeName ="nchar(10)")]
+
+        [Column(TypeName = "nchar(10)")]
         public string farmPrimarySubBasinID { get; set; }
 
+        [ForeignKey("farmPrimaryAddress")]
         public int? farmPrimaryAddressID { get; set; }
+        public AddressModel farmPrimaryAddress { get; set; }
+
+        [ForeignKey("farmParticipantProducer")]
         public int? farmParticipantProducerID { get; set; }
+        public ParticipantDetailsViewModel farmParticipantProducer {get;set;}
+
         public int? farmCreatedByID { get; set; }
         public DateTime? farmCreatedDate { get; set; }
         public int? farmModifiedByID { get; set; }
