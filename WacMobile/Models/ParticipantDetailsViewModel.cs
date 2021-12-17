@@ -13,7 +13,10 @@ namespace WacMobile.Models
         public int? conTitleID { get; set; }
         public int? conSuffixID { get; set; }
         public string conEmail { get; set; }
+
         public int? conContactTypeID { get; set; }
+        public ContactTypeModel conContactType { get; set; }
+
         public bool? conIsOrganization { get; set; }
         public int? conContactOrganizationID { get; set; }
         public int? conPrimaryPhoneNumberID { get; set; }

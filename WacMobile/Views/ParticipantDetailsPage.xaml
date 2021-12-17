@@ -28,7 +28,7 @@
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Is Active? " />
                     <Label Text="{Binding conIsActive}" />
-                </StackLayout>
+                </StackLayout>                
             </StackLayout>
             <Label Text=" "/>
             <!-- Address info -->
@@ -45,8 +45,8 @@
                         <Label Text="{Binding GetAddrCSZ}" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="County: " />
-                        <Label Text="TBD" />
+                        <Label Text="Address Contact Type:  " />
+                        <Label Text="{Binding conContactType.ctyName}" />
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

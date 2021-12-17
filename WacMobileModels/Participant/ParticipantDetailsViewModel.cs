@@ -24,8 +24,9 @@ namespace WacMobileModels.Participant
 
         public string conEmail { get; set; }
 
+        [ForeignKey("conContactType")]
         public int? conContactTypeID { get; set; }
-
+        public ContactTypeModel conContactType { get; set; }
 
         public bool? conIsOrganization { get; set; }
 

@@ -45,6 +45,10 @@ namespace WitWebAPI.Services
             #region Section: Participant/Contact ModelBuilder Entries
             modelBuilder.Entity<ParticipantDetailsViewModel>()
                 .HasOne(a => a.conAddress);
+
+            modelBuilder.Entity<ParticipantDetailsViewModel>()
+                .HasOne(ct => ct.conContactType);
+
             #endregion
         }
     }

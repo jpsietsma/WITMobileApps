@@ -30,6 +30,7 @@ namespace WitWebAPI.Controllers
 
             participantModel = Database.Contact
                 .Include(a => a.conAddress)
+                .Include(ct => ct.conContactType)
                 .Where(x => x.conID == Id)
                 .FirstOrDefault();
 
@@ -44,6 +45,8 @@ namespace WitWebAPI.Controllers
 
             participants = Database.Contact
                 .Include(a => a.conAddress)
+                .Include(ct => ct.conContactType)
+                .OrderBy(ln => ln.conLastName)
                 .ToList();
 
             return JsonConvert.SerializeObject(participants);
