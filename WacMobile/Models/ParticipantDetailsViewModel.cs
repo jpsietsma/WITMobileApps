@@ -17,7 +17,10 @@ namespace WacMobile.Models
         public bool? conIsOrganization { get; set; }
         public int? conContactOrganizationID { get; set; }
         public int? conPrimaryPhoneNumberID { get; set; }
+
         public int? conPrimaryAddress { get; set; }
+        public AddressModel conAddress { get; set; }
+
         public bool? conIsActive { get; set; }
         public bool? conIsDeceased { get; set; }
         public int? conCreatedByID { get; set; }
@@ -27,6 +30,7 @@ namespace WacMobile.Models
 
         public string GetNameLF { get { return string.Concat(conLastName, ", ", conFirstName); } }
         public string GetNameFL { get { return string.Concat(conFirstName, " ", conLastName); } }
+        public string GetAddrCSZ { get { return conAddress == null ? null : string.Concat(conAddress.addCity, ", ", conAddress.addStateOrProvidence, " ", conAddress.addZipOrPostalCode); } }
 
     }
 }

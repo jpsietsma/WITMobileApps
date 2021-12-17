@@ -48,7 +48,7 @@ namespace WacMobileModels.Participant
 
         public string GetAddrCSZ { 
             get { 
-                return conAddress == null ? string.Concat(conAddress.addCity, ", ", conAddress.addStateOrProvidence, " ", conAddress.addZipOrPostalCode) : null;
+                return conAddress == null ? null : string.Concat(conAddress.addCity, ", ", conAddress.addStateOrProvidence, " ", conAddress.addZipOrPostalCode);
             } 
         }
 
