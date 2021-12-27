@@ -3,77 +3,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WacMobile.Views.ParticipantDetailsPage">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand">
-            <!-- Header -->
-            <Frame HasShadow="True" Padding="10,10,10,10" Margin="10,10,10,10">
-                <StackLayout Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
-                        <Label Text="Contact Details: " FontSize="Title" />
-                    </StackLayout>
-                    <!-- Name, Email, Active, Deceased -->
-                    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Contact Name: " />
-                            <Label Text="{Binding GetNameFL}" />
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Email Address: " />
-                            <Label Text="{Binding conEmail}" />
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Is Deceased? " />
-                            <Label Text="{Binding conIsDeceased}" />
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Is Active? " />
-                            <Label Text="{Binding conIsActive}" />
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>                
-            </Frame>            
-            <!-- Address info -->
-            <Frame HasShadow="True" Padding="10,10,10,10" Margin="10,10,10,10">
-                <StackLayout Orientation="Vertical"  VerticalOptions="Center" HorizontalOptions="Center">
-                    <Label Text="Address Information: " FontSize="Title" />
+        <StackLayout VerticalOptions="Start">
+            <StackLayout Orientation="Horizontal">
+                <!-- Basic Contact Info -->
+                <Frame HasShadow="True" Padding="10,10,10,10" Margin="10,10,10,10">
                     <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Street Address: " />
-                            <Label Text="{Binding conAddress.addAddress}" />
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                            <Label Text="Contact Details: " FontSize="Title" />
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="City/State/Zip: " />
-                            <Label Text="{Binding GetAddrCSZ}" />
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Address Contact Type:  " />
-                            <Label Text="{Binding conContactType.ctyName}" />
+                        <BoxView BackgroundColor="Red" HeightRequest="1" />
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Contact Name: " />
+                                <Label Text="{Binding GetNameFL}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Email Address: " />
+                                <Label Text="{Binding conEmail}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Is Deceased? " />
+                                <Label Text="{Binding conIsDeceased}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Is Active? " />
+                                <Label Text="{Binding conIsActive}" />
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
-                </StackLayout>
-            </Frame>            
-            <!-- Farm Information -->
-            <Frame HasShadow="true" Padding="10,10,10,10" Margin="10,10,10,10">
-                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
-                    <Label Text="Associated Farms: " FontSize="Title" />
-                    <Label Text="Farm ID: TEST-001 (Owner)" />
-                    <Label Text="Farm ID: TEST-002 (Owner/Operator)" />
-                    <Label Text="Farm ID: TEST-003 (Operator)" />
-                </StackLayout>
-            </Frame>            
-            <!-- Documents -->
-            <Frame HasShadow="True" Padding="10,10,10,10" Margin="10,10,10,10">
-                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
-                        <Label Text="Documents Available: " FontSize="Title" />
+                </Frame>
+                <!-- Address info -->
+                <Frame HasShadow="True" Padding="10,10,10,10" Margin="10,10,10,10">
+                    <StackLayout Orientation="Vertical"  VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label Text="Address Information: " FontSize="Title" />
+                        <BoxView BackgroundColor="Red" HeightRequest="1" />
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Street Address: " />
+                                <Label Text="{Binding conAddress.addAddress}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="City/State/Zip: " />
+                                <Label Text="{Binding GetAddrCSZ}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Address Contact Type:  " />
+                                <Label Text="{Binding conContactType.ctyName}" />
+                            </StackLayout>
+                        </StackLayout>
                     </StackLayout>
-                    <Label Text="IRS W-9 (2019)" />
-                    <Label Text="IRS W-9 (2020)" />
-                    <Label Text="Workman's Comp (2019)" />
-                    <Label Text="Workman's Comp (2020)" />
-                    <Label Text="Certificate of Liability (2019)" />
-                    <Label Text="Certificate of Liability (2020)" />
-                </StackLayout>
-            </Frame>                        
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <!-- Farm Information -->
+                <Frame HasShadow="true" Padding="10,10,10,10" Margin="10,10,10,10">
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Label Text="Associated Farms: " FontSize="Title" />
+                        <BoxView BackgroundColor="Red" HeightRequest="1" />
+                        <Label Text="Farm ID: TEST-001 (Owner)" />
+                        <Label Text="Farm ID: TEST-002 (Owner/Operator)" />
+                        <Label Text="Farm ID: TEST-003 (Operator)" />
+                    </StackLayout>
+                </Frame>
+                <!-- Documents -->
+                <Frame HasShadow="True" Padding="10,10,10,10" Margin="10,10,10,10">
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                            <Label Text="Documents Available: " FontSize="Title" />
+                        </StackLayout>
+                        <BoxView BackgroundColor="Red" HeightRequest="1" />
+                        <Label Text="IRS W-9 (2019)" />
+                        <Label Text="IRS W-9 (2020)" />
+                        <Label Text="Workman's Comp (2019)" />
+                        <Label Text="Workman's Comp (2020)" />
+                        <Label Text="Certificate of Liability (2019)" />
+                        <Label Text="Certificate of Liability (2020)" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>                                                
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -31,13 +31,17 @@ namespace WacMobile.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
+            errorPlaceholder.Text = "Logging in... Please wait.";
+            errorPlaceholder.FontAttributes = FontAttributes.Bold;
+
             AuthSvc.UserName = userName.Text;
             AuthSvc.Password = password.Text;
-
+                        
             var response = await AuthSvc.AuthenticateUserAsync();
 
             if (response.User != null)
             {
+                errorPlaceholder.Text = null;
                 await Navigation.PushAsync(new DashboardPage(response.User));
             }
             else
@@ -55,6 +59,7 @@ namespace WacMobile.Views
                 userName.Text = string.Empty;
                 password.Text = string.Empty;
                 errorPlaceholder.TextColor = Color.Red;
+                errorPlaceholder.FontAttributes = FontAttributes.Bold;
                 errorPlaceholder.Text = "You must login to continue.";
             });                        
         }
